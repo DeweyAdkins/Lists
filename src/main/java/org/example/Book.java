@@ -1,7 +1,7 @@
 package org.example;
 
 public class Book {
-    private final String title;
+    private String title;
     private int numberOfPages;
     private int publicationYear;
 
@@ -11,6 +11,19 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
+    public Book(String title) {
+        this.title = title;
+        this.numberOfPages = 0;
+        this.publicationYear = 0;
+    }
+
+    public Book() {
+        this.title = "Unknown";
+        this.numberOfPages = 0;
+        this.publicationYear = 0;
+    }
+
+    // Getters
     public String getTitle() {
         return title;
     }
@@ -25,6 +38,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book: " + getTitle() + ", Pages: " + getNumberOfPages() + ", PublicationYear: " + getPublicationYear();
+        return "Book: " + getTitle() + ", Pages: " + getNumberOfPages() + ", Year: " + getPublicationYear();
     }
 }

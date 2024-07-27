@@ -1,7 +1,7 @@
 package org.example;
 
 public class TvShow {
-    private final String showName;
+    private String showName;
     private int numberOfEpisodes;
     private String genre;
 
@@ -9,6 +9,18 @@ public class TvShow {
         this.showName = showName;
         this.numberOfEpisodes = numberOfEpisodes;
         this.genre = genre;
+    }
+
+    public TvShow(String showName) {
+        this.showName = showName;
+        this.numberOfEpisodes = 0;
+        this.genre = "Unknown";
+    }
+
+    public TvShow() {
+        this.showName = "Unknown";
+        this.numberOfEpisodes = 0;
+        this.genre = "Unknown";
     }
 
     public String getShowName() {
@@ -25,7 +37,6 @@ public class TvShow {
 
     @Override
     public String toString() {
-        return "TV SHOW: " + getShowName() + ", Episodes: " + getNumberOfEpisodes() + ", Genre: " + getGenre();
+        return "TV Show: " + getShowName() + ", Episodes: " + getNumberOfEpisodes() + ", Genre: " + getGenre();
     }
-
 }

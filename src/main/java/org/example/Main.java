@@ -1,100 +1,57 @@
 package org.example;
-import java.util.Scanner;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(new Animal("Dog", true));
+        animals.add(new Animal("Cat"));
+        animals.add(new Animal());
+
+        for (Animal animal : animals) {
+            System.out.println(animal);
+        }
+
+
         ArrayList<TvShow> tvShows = new ArrayList<>();
+        tvShows.add(new TvShow("Breaking Bad", 62, "Crime"));
+        tvShows.add(new TvShow("Friends"));
+        tvShows.add(new TvShow());
+
+        for (TvShow tvShow : tvShows) {
+            System.out.println(tvShow);
+        }
+
+
         ArrayList<Book> books = new ArrayList<>();
-        while (true) {
+        books.add(new Book("Harry Potter", 500, 1997));
+        books.add(new Book("To Kill a Mockingbird"));
+        books.add(new Book());
 
-                System.out.println("Enter the name of your animal (or press Enter to stop: ");
-                String name = scanner.nextLine();
-
-                if (name.isEmpty()) {
-                    break;
-                }
-
-                System.out.print("Is this animal a dog? (True/false): ");
-                boolean isDog = scanner.nextBoolean();
-                scanner.nextLine();
-
-                animals.add(new Animal(name, isDog));
-            }
-
-            System.out.println("\nList of Animals:");
-            for (Animal animal : animals) {
-                System.out.println(animal);
-            }
-
-
-
-
-        while (true) {
-        System.out.print("Enter the name of the TV show ( or press Enter to stop): ");
-        String showName = scanner.nextLine();
-
-        if (showName.isEmpty()) {
-            break;
-        }
-
-        System.out.print("Enter the number of episodes: ");
-        int numberOfEpisodes = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.print("Enter the Genre: ");
-        String genre = scanner.nextLine();
-        tvShows.add(new TvShow(showName, numberOfEpisodes, genre));
-    }
-
-        System.out.println("\nList of TV Shows:");
-        for (TvShow show : tvShows) {
-            System.out.println(show);
+        for (Book book : books) {
+            System.out.println(book);
         }
 
 
+        Counter counter1 = new Counter(5);
+        Counter counter2 = new Counter();
 
-        while (true) {
-            System.out.print("Enter the name of the book (or press Enter to stop): ");
-            String title = scanner.nextLine();
+        System.out.println("Counter 1 initial value: " + counter1.value());
+        System.out.println("Counter 2 initial value: " + counter2.value());
 
-            if (title.isEmpty()) {
-                break;
-            }
+        counter1.increase();
+        counter2.decrease();
 
-            System.out.print("Enter the number of pages: ");
-            int numberOfPages = scanner.nextInt();
-            scanner.nextLine();
+        System.out.println("Counter 1 after increase: " + counter1.value());
+        System.out.println("Counter 2 after decrease: " + counter2.value());
 
-            System.out.print("Enter the publication year: ");
-            int publicationYear = scanner.nextInt();
-            scanner.nextLine();
+        counter1.increase(3);
+        counter2.decrease(2);
 
-            books.add(new Book(title, numberOfPages, publicationYear));
-        }
-
-        System.out.print("What do you want to print? (everything/name):");
-        String choice = scanner.nextLine();
-
-        if (choice.equalsIgnoreCase("everything")) {
-            for (Book book : books) {
-                System.out.println(book);
-            }
-        } else if (choice.equalsIgnoreCase("name")) {
-            for (Book book : books) {
-                System.out.println(book.getTitle());
-            }
-        }
-
-        scanner.close();
+        System.out.println("Counter 1 after increase by 3: " + counter1.value());
+        System.out.println("Counter 2 after decrease by 2: " + counter2.value());
     }
 }
-
-
-
-
-
-
-
